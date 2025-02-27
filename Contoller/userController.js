@@ -1,5 +1,5 @@
 const { model } = require("mongoose");
-const userDb = require("./Model/userSchema");
+const userDb = require("../Model/userSchema");
 
 const adduser = async(req,res)=>{
     try {
