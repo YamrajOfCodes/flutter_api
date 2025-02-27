@@ -4,10 +4,8 @@ const userDb = require("../Model/userSchema");
 const adduser = async(req,res)=>{
     try {
         const {pname,pphone,page} = req.body;
-       
         
-
-         
+        
           const user = new userDb({
             username:pname,
             phone:pphone,
@@ -20,7 +18,7 @@ const adduser = async(req,res)=>{
             res.status(200).send({
                 "statuscode":200,
                 "message":"the data has sent",
-                "data":req.body
+                "data":user
             })
     } catch (error) {
         
