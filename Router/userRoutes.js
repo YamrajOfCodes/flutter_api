@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const userController = require("../Contoller/userController");
 
-router.get("/adduser",userController.adduser);
+router.post("/adduser",userController.adduser);
+router.get("/getuser",userController.getuser);
 
 
 
