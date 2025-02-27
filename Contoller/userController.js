@@ -8,13 +8,13 @@ const adduser = async(req,res)=>{
         
 
          
-        //   const user = new userDb({
-        //     username:pname,
-        //     phone:pphone,
-        //     age:page,
-        //   })
+          const user = new userDb({
+            username:pname,
+            phone:pphone,
+            age:page,
+          })
         
-        //   await user.save();
+          await user.save();
             
         
             res.status(200).send({
