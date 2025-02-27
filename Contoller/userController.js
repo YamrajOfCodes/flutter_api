@@ -40,6 +40,18 @@ const getuser = async(req,res)=>{
     }
 
 
+const deleteuser = async(req,res)=>{
+
+    const {id} = req.params;
+
+    try {
+        const deletesingleuser = await userDb.findOneAndDelete({_id:id});
+        res.status(200).json("data deleted successfully");
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
 
 
 
@@ -59,4 +71,6 @@ const getuser = async(req,res)=>{
 
 
 
-module.exports = {adduser,getuser};
+
+
+module.exports = {adduser,getuser,deleteuser};
