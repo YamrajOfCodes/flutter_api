@@ -5,7 +5,7 @@ const adduser = async(req,res)=>{
     try {
         const {pname,pphone,page} = req.body;
 
-          if(!pname || pphone || !page){
+          if(!pname || !pphone || !page){
             return res.status(400).json({error:"all fields are required"});
           }
           
