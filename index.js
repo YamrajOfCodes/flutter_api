@@ -3,7 +3,12 @@ const app = express();
 const Db = require("./Db/connection");
 const userDb = require("./Model/userSchema");
 const userRouter = require("./Router/userRoutes");
+const cors = require("cors");
+
+
 app.use(express.json());
+app.use(cors("*"));
+
 
 
 
@@ -11,6 +16,10 @@ app.use(express.json());
 Db();
 
 app.use("/user/api",userRouter);
+
+app.get("/",(req,res)=>{
+    res.send("hi");
+})
 
 // app.post("/person/data",async(req,res)=>{
 
