@@ -1,5 +1,6 @@
 const { model } = require("mongoose");
 const userDb = require("../Model/userSchema");
+const adminDb = require("../Model/loginadmin");
 
 const adduser = async(req,res)=>{
     try {
@@ -53,6 +54,29 @@ const deleteuser = async(req,res)=>{
     }
 }
 
+const adminLogin = async(req,res)=>{
+
+
+    const {email,password} = req.body
+
+    if(!email || !password){
+        return res.status(400).json({error:"All the fields are required"});
+    }
+
+    const admin = await adminDb.find({email});
+
+    if(!admin){
+        return res.status(400).json({error:"Invalid admin"}); 
+    }else{
+    
+        if(admin.password == password){
+            return res.status(200).json("sucess")
+        }else{
+            return res.status(400).json({error:"password invalid"});
+        }
+    }
+
+}
 
 
 
@@ -73,4 +97,5 @@ const deleteuser = async(req,res)=>{
 
 
 
-module.exports = {adduser,getuser,deleteuser};
+
+module.exports = {adduser,getuser,deleteuser,adminLogin};
