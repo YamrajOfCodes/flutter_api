@@ -70,7 +70,7 @@ const adminLogin = async(req,res)=>{
     }else{
     
         if(admin.password == password){
-            return res.status(200).json("sucess")
+            return res.status(200).json({msg:"sucess",token:"232323hjmnjmnio"});
         }else{
             return res.status(400).json({error:"password invalid"});
         }
