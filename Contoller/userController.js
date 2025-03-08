@@ -63,7 +63,7 @@ const adminLogin = async(req,res)=>{
         return res.status(400).json({error:"All the fields are required"});
     }
 
-    const admin = await adminDb.find({email});
+    const admin = await adminDb.findOne({email:email});
 
     if(!admin){
         return res.status(400).json({error:"Invalid admin"}); 
